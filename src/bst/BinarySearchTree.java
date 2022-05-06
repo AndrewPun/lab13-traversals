@@ -118,39 +118,38 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	//Print the current node first and then recurse on the children
 	public void preOrder() {
 		System.out.println("Preorder Recurse");
-		preOrderRecurse(root); 
-		System.out.println("Preorder Test Commit");
+        preOrderRecurse(root); 
+        System.out.println("Preorder Test Commit");
 	}
 	
 	private void preOrderRecurse(BSTNode<T> node) {
 		if (node == null) {
-			return;
-		}
-		preOrderRecurse(node.leftChild);
-		preOrderRecurse(node.rightChild);
-		System.out.println(node.data + " ");
+            return;
+        }
+        preOrderRecurse(node.leftChild);
+        preOrderRecurse(node.rightChild);
+        System.out.print(node.data + " ");
 	}
 	
 	//Traverse the tree in an preorder fashion but using a stack
 	//Print the current node first and then recurse on the children
 	public void preOrderStack() {
 		if (root == null) {
-			return;
-		}
-		Stack<BSTNode<T>> pre = new Stack<BSTNode<T>>();
-		pre.push(root);
-		BSTNode<T> current = root;
-		while (!pre.isEmpty()) {
-			if (current != null) {
-				if (current.rightChild != null) {
-					pre.push(current.rightChild);
-				}
-				current = current.leftChild;
-			}
-			else {
-				current = pre.pop();
-			}
-		}
+            return;
+        }
+        Stack<BSTNode<T>> pre = new Stack<BSTNode<T>>();
+        pre.push(root);
+        BSTNode<T> current = root;
+        while (!pre.isEmpty()) {
+        	BSTNode<T> n = pre.pop();
+        	System.out.print(n.data + " ");
+            if (n.rightChild != null) {
+            	pre.push(n.rightChild);
+            }
+            if (n.leftChild != null) {
+            	pre.push(n.leftChild);
+            }
+        }
 	}
 		
 
@@ -230,16 +229,16 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		bst.insert(3);
 		System.out.println(bst);
 	
-		System.out.println("In Order Traversals:");
+		System.out.println("In Order Traversals");
 		bst.inOrder();
 		System.out.println();
 		bst.inOrderStack();
 		System.out.println();
-		System.out.println("Pre Order Traversals:");
+		System.out.println("Pre Order Traversals");
 		bst.preOrder();
 		System.out.println();
 		bst.preOrderStack();
-		System.out.println("Post Order Traversals:");
+		System.out.println("Post Order Traversals");
 		bst.postOrder();
 		System.out.println();
 		bst.postOrderStack();
