@@ -157,6 +157,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	
 	public void postOrderRecurse(BSTNode<T> node) {
 		
+		
 	}
 	
 	//Traverse the tree in an postorder fashion uses Stacks. 
